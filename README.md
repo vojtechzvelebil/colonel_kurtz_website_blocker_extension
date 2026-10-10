@@ -1,6 +1,6 @@
 Have you ever considered any real freedoms? Freedom from watching youtube... Even from checking social media for hours?<br><br>
 
-If you did, this extension might help you attain them. It lets you stay on websites you restrict, but if you go over your custom set time limit, Kurtz's villainous yellow head will start popping out of the dark to nudge you off.<br><br>
+If you did, this extension might help you attain them. It lets you stay on websites you restrict, but if you go over your custom set time limit, Kurtz's villainous yellow head will start popping out of the dark to nudge you off. Works better than binary ban that cuts you off completely I find.<br><br>
 
 The original scene that is embeded in the extension (the lighting and camera is just absolutely mesmerizing!): <br>
 https://www.youtube.com/watch?v=U72oCSSbYcM<br><br>
