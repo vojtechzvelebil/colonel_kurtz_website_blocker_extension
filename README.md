@@ -6,10 +6,12 @@ Chrome webstore: <br>
 https://chromewebstore.google.com/detail/deemngaphalnilhllgpfdoenfchmkepc<br><br>
 
 The original scene that is embeded in the extension (the lighting and camera is just absolutely mesmerizing!): <br>
-https://www.youtube.com/watch?v=U72oCSSbYcM<br><br>
+https://www.youtube.com/watch?v=U72oCSSbYcM<br><br><br>
 
+🔒 Unlock by finding 6 hidden easter eggs: <br>
+https://vojtechzvelebil.github.io/colonel_kurtz_website_blocker_extension/<br><br>
 
-Peace, 
-Shalom, 
-Salam alaykum,
-Mír s Tebou
+Peace, <br>
+Shalom, <br>
+Salam alaykum,<br>
+Mír s Tebou<br>
