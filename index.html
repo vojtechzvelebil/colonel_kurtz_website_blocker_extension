@@ -1,0 +1,729 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .help {cursor: help;}
+
+    *::selection {
+      background-color: goldenrod;
+      color: black;
+    }
+
+    #left_panel_close{
+      display: none;
+    }
+
+    .left_panel_unfolded{
+      position: absolute;
+      top: 0;
+      left: 2%;
+      background-color: black;
+      height: 100vh;
+      width: 28vw;
+    }
+
+
+
+    *{
+      overflow: hidden;
+    }
+    body{
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      background-color: black;
+    }
+
+    .main{
+      height: 100vh;
+      width: 100vw;
+    }
+    .heart_parent{
+      position: absolute;
+      left: 50%;
+      top: 57%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    .black_heart_bkg{
+      display: none;
+      height: 100%;
+      width: 100%;
+      background-image: url('https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/hod4.png');
+      background-repeat: no-repeat;
+      background-size: 62vh auto;
+      background-position: center;
+    }
+    .lock_div_parent{
+      text-align: center;
+      background: black;
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      font-size: 35px;
+      outline-offset: 2px;
+      margin: 0px 5px;
+      border: 1px solid grey;
+    }
+    .gardenia_img{
+      width: 38px;
+      padding: 10px;
+    }
+    .find_icon{
+      width: 44px;
+      padding: 0px;
+    }
+
+    .locked_btn{
+      background: black;
+      color: white;
+      padding: 10px 12px;
+      width: 80px;
+      box-shadow: 0px 0px 10px 1px white;
+      border: 1px solid white;
+      margin: auto;
+      text-align: center;
+      margin-top: 30px;
+      cursor: none;
+    }
+
+
+    .alert_find_class{
+      font-size: 15px;
+    }
+
+    .kurtz_bkg{
+      height: 100%;
+      width: 100%;
+      background-image: url('https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/kurtz_bkg.png');
+      background-size: cover;
+      background-position: center;
+      animation: kurtz_fade 20s infinite forwards;
+    }
+    @keyframes kurtz_fade{
+      0%{opacity: 100%}
+      35%{opacity: 0%;}
+      37%{opacity: 100%}
+    }
+    h3{
+      width: 500px;
+      font-size: 25.5px;
+      line-height: 1.2;
+      font-weight: 400;
+      color:lightgrey;
+      text-transform: uppercase;
+      font-family: monospace;
+      position: absolute;
+      top: 3%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    h3.header2{
+      display: none;
+    }
+    .display_block{
+      display: block !important;
+    }
+    .display_none{
+      display: none !important;
+      }
+
+    .pbr_parent{
+      position: absolute;
+      top: 30%;
+      height: 12%;
+      left: 2%;
+      width: 400px;
+      color: grey;
+    }
+    #searching_tag{
+      color:white;
+      position: absolute;
+      bottom: 0;
+      font-size: 17px;
+    }
+    #boat{
+      cursor: pointer;
+      width: 65px;
+      height: auto;
+      cursor: pointer;
+      filter: grayscale(100%) brightness(30%);
+    }
+    #boat_sign{
+      cursor: pointer;
+    }
+    .mission_statement{
+      position: absolute;
+      top: 50%;
+      left: 2%;
+      width: 400px;
+      color: grey;
+    }
+    .step{
+      font-size: 15.5px;
+      line-height: 1.7
+    }
+
+
+
+  /*---- Bus animation */
+  #bus_notice{
+    color: grey;
+    font-size: 13.5px;
+    margin-bottom: -10px;
+    border: 1px solid grey;
+    width: 150px;
+    text-align: center;
+    padding: 4px 6px;
+  }
+
+  #bus_parent{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+  }
+  .bus_arrival{
+    animation: bus_arrival_anim 3s ease-in-out forwards;
+  }
+  @keyframes bus_arrival_anim {
+    0% { width: 2px; height: auto; }
+    60% { width: 110px; height: auto; }
+    100% {
+      width: 110px;
+      height: auto;
+    }
+  }
+  .bus_departure{
+    animation: bus_departure_anim 3s ease-in-out forwards;
+  }
+  @keyframes bus_departure_anim {
+    0% { width: 110px; height: auto; }
+    60% { width: 110px; height: auto; }
+    100% {
+      width: 0px;
+      height: auto;
+    }
+  }
+  /* End of bus ----- */
+
+
+
+
+
+
+
+
+    .temple_fade{
+      opacity: 0%;
+      animation: fadeinout 5.5s ease-in-out infinite alternate forwards
+    }
+
+    @keyframes fadeinout{
+      0%{
+        opacity: 0%
+      }
+      40%{
+        opacity: 100%;
+      }
+      50%{
+      opacity: 100%;
+      }
+    }
+
+    #clue_box{
+      display: none;
+    }
+
+    p.extensions{
+      font-size: 11px;
+      font-weight: 200;
+      color:gold;
+      font-family: monospace;
+      position: absolute;
+      color:gray;
+      bottom: 3%;
+      left: 50%;
+      text-align: center;
+      transform: translateX(-50%);
+    }
+    a{
+      color: gold;
+      text-decoration: none;
+    }
+    .signup{
+      width: 400px;
+      height: 100vh;
+      font-size: 15px;
+      font-weight: 200;
+      color:white;
+      font-family: monospace;
+      position: absolute;
+      top: 75px;
+      left: 2%;
+    }
+    form{
+      padding: 15px 0px;
+    }
+    #email_input{
+      all: unset;
+      margin-left: 2px;
+      background-color: black;
+      border: grey 1px solid;
+      padding: 6px 10px;
+      box-shadow: none;
+      outline: none;
+    }
+    #email_input:focus{
+      border-radius: 0px;
+      outline: none;
+      box-shadow: 0px 0px 6px 1px white;
+    }
+
+
+    #signup_btn{
+      cursor: pointer;
+      background-color: black;
+      border: grey 1px solid;
+      padding: 6px 10px;
+      color:white
+    }
+    .yellow_emoticon{
+      width: 18px;
+      padding: 0px 5px;
+      margin-bottom: -4px;
+    }
+
+    .left_corner_temple{
+      width: 350px;
+      height: 100vh;
+      font-size: 12px;
+      font-weight: 200;
+      color:lightgrey;
+      font-family: monospace;
+      position: absolute;
+      top: 88%;
+      left: 2%;
+    }
+
+    .ts_eliot{
+      overflow-y: auto !important;
+      height: 90vh;
+      position: absolute;
+      top: 75px;
+      right: 0;
+      margin: 0vh 20px;
+      color: goldenrod;
+      padding-right: 40px;
+      padding-top: 0px;
+      font-size: 12px;
+    }
+
+
+    #twobucks{
+      cursor: url("https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/crosshair.png") 16 16, crosshair !important;
+    }
+
+
+
+
+
+/*! Scrollbar width */
+::-webkit-scrollbar {
+  width: 13px;
+  border-radius: 0px !important;
+  height: 5px; /* horizontal scrollbar */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: rgb(28, 28, 28);
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: goldenrod; /* Kurtz gold-ish */
+  border-radius: 6px;
+  border: 3px solid #111;
+}
+
+/* Hover state */
+::-webkit-scrollbar-thumb:hover {
+  background: goldenrod;
+}
+
+
+
+
+
+
+
+.roll {
+  display:block !important;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  margin-bottom: 3px;
+  animation: roll 2s linear forwards;
+}
+
+@keyframes roll {
+  from {
+    transform: translateX(0) rotate(0deg);
+  }
+  to {
+    transform: translateX(calc(-30vw - 50px)) rotate(-880deg);
+  }
+}
+
+
+
+.stain_fade_out{
+  animation: stain_fade_out_anim 3s ease-in-out 6s forwards;
+}
+
+@keyframes stain_fade_out_anim{
+  0%{
+    opacity: 100%;
+  }
+  100%{
+    opacity: 0%;
+    display: none;
+  }
+}
+
+
+.final_fade{
+  animation: final_fade_anim 6s ease-in-out forwards;
+}
+@keyframes final_fade_anim {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+#kurtz_ext_bkg_img_id{
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999999;
+}
+.fade_inout_3s{
+  animation: fade_inout_4s_anim 3s ease-in-out forwards
+}
+@keyframes fade_inout_4s_anim {
+  0%{opacity: 0}
+  15%{opacity: 1}
+  80%{ opacity: 1;}
+  100%{ opacity: 0;}
+}
+.fade_in_2s{
+  animation: fade_out_2s_anim 2s ease-in-out forwards
+}
+@keyframes fade_out_2s_anim {
+  0%{opacity: 0}
+  100%{opacity: 1}
+}
+
+
+
+  #copy_to_clipboard{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top:40%;
+    right: 0;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    color: white
+  }
+
+  #copy_text_label{
+    color: lightgrey;
+    font-size: 11px;
+    position: absolute;
+    top:40%;
+    right: 0;
+    padding: 3px;
+    margin-top: -24px;
+  }
+
+
+  #pwd_submit{
+    display: none;
+    cursor: pointer;
+  }
+  #hidden_pwd_step{
+    display: none;
+  }
+
+  #pwd{
+    caret-color: gold;
+    color: gold !important;
+    background: black;
+    outline: none;
+    inset: none;
+    border: none;
+    width: 85px;
+    outline: none;
+    background: none;
+    padding: 4px;
+    margin-left: 6px;
+    border-bottom: 1px solid white;
+
+  }
+
+
+
+#folded_left_panel{
+  display: none;
+}
+#folded_right_panel{
+  display: none;
+}
+
+@media screen and (max-width: 1366px){
+  .left_panel_unfolded{
+    display: none;
+    z-index: 1000;
+    border-right: 1px solid lightgrey;
+    min-width: 400px;
+  }
+  .right_panel_unfolded{
+    z-index: 1000;
+    background-color: black;;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10vh 0px;
+    padding-left: 15px;
+    display: none;
+    height: 100vh;
+    border-left: 1px solid lightgrey;
+    min-width: 250px;
+  }
+
+  #folded_left_panel{
+    left: 0;
+    margin: 0px;
+    display: block;
+    border-right: 1px solid lightgrey;
+  }
+  #folded_right_panel{
+    text-align: end;
+    right: 0;
+    display: block;
+    border-left: 1px solid lightgrey;
+  }
+
+  .folded_panel{
+    color: white;
+    font-size: 25px;
+    line-height: 100vh;
+    height: 100vh;
+    padding: 0px;
+    position: absolute;
+    width: 30px;
+    top: 0;
+  }
+
+
+  #left_panel_close{
+    display: block;
+    z-index: 10001;
+    cursor: pointer;
+    margin: 5px 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #right_panel_close{
+    border-bottom: 1px solid white;
+    display: block;
+    z-index: 10001;
+    cursor: pointer;
+    margin: 5px 10px;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+}
+
+
+  </style>
+</head>
+<body>
+
+<div style="position: fixed; background: gold; height: 40px; width: 100vw; top: 0; left: 0; z-index: 9999; display: flex;  align-items: center; justify-content: center; text-align: center">Terminate procrastination's command. <a style="padding: 0px 8px; color:black; font-weight: 800;" href="https://chrome.google.com/webstore/detail/deemngaphalnilhllgpfdoenfchmkepc" target="_blank"> Free download on Chrome webstore</a></div>
+<!--* Main parent -->
+<div class="main">
+
+<div class="kurtz_bkg"></div>
+<div class="black_heart_bkg"></div>
+
+<div class="heart_parent">
+  <div style="display: flex;">
+    <div class="lock_div_parent"> </div>
+    <div class="lock_div_parent"> </div>
+    <div class="lock_div_parent"> </div>
+    <div class="lock_div_parent"> </div>
+    <div class="lock_div_parent"> </div>
+    <div class="lock_div_parent"> </div>
+  </div>
+
+  <div style="font-size: 15px; width: 350px; margin: auto; margin-top: 20px; text-align: center; color: lightgrey"><i>...You'd think that heaven just fell on the earth, in the form of gardenias.</i></div>
+  <div style="height: 120px"> <div class="locked_btn">Locked</div></div>
+
+</div>
+
+
+<!--* Left pan -->
+<div class="folded_panel" id="folded_left_panel">⇒</div>
+
+<div class="left_panel_unfolded">
+  <div id="left_panel_close">x</div>
+  <div style="width: 100%; height: 100%; position:relative">
+
+
+
+<div class="signup">
+  <span style="background: white; color: black; padding: 1px 5px">Searching for testers.</span>
+  <br><br>Men who are moral... and at the same time who are able to utilize their primordial perverse curiosity to try out new browser extensions. <br> Without passion. <br> Without judgment. <br>
+
+  <span id="pokus_ext"></span>
+
+  <br><span>+ ONE EXTRA CLUE</span>
+  <br><br><a style="border: 1px solid gold; padding:5px 30px;" href="https://docs.google.com/forms/d/e/1FAIpQLSdDwJ0xurSVOnqtzGiHtjdYCRysr3sPdBRjnGDjt7qSlkkYmw/viewform?usp=publish-editor" target="_blank">Sign up</a>
+
+
+
+</div>
+
+<div class="pbr_parent"></div><!-- *Needed for js -->
+
+<div class="mission_statement">
+  <img id="boat" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/pbr.webp" alt=""> <br>
+  <span id="mission_date_span" style="font-size: 12px;"></span> <br>
+  <span style="line-height: 1.8; font-size: 23px">Mission instructions:</span> <br>
+
+  <span class="step" style=" color:gold">⚫ Find 6 hidden Easter eggs to unlock the extension </span> <br>
+  <span id="reveal_clues_btn" class="step" style="line-height: 25px !important; color:lightgrey; cursor: pointer; ">⚫ Reveal a clue <img src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/gardenia.png" alt="" style="width: 20px; margin-bottom: -3px;"></span> <br>
+
+  <span id="hidden_pwd_step" class="step">⚫ Shortcut password: <input id="pwd" autofocus type="text" placeholder=" "> <span id="pwd_submit">unlock <img  style="width: 31px; margin-bottom: -9px;" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/temple.png" alt=""></span>
+  </span>
+
+  <div style="width: 100%; height: 1px; background: grey; margin: 10px 0;"></div>
+<div style="display: none">
+  <span class="step">👉 Click <img style="width: 20px; margin-bottom:-1px;" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/chrome_puzzle_icon.png" alt=""> in the top bar.</span> <br>
+  <span class="step">👉 Find: <img class="yellow_emoticon" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/icon128.png" alt=""> & click: <img style="width: 18px; margin-bottom:-5px;" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/pin_chome_icon.png" alt=""> to add it to the top bar.</span> <br>
+  <span class="step">👉 Go to an addictive website, click the <img id="pwd_reveal" class="yellow_emoticon" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/icon128.png" alt=""></span><br>
+  <span class="step">👉 Set daily time limit and click the ON / OFF button.</span><br>
+  <span class="step">👉 Make a friend of horror and defeat procrastination</span><br>
+
+</div>
+
+</div>
+
+
+
+<div class="left_corner_temple">
+  <div style="padding-left: 0; display: flex; cursor: pointer;" >
+    <div><span style="letter-spacing: 4px; font-size: 11px">Search <br> and <br> you <br> shall <br> find<br></span></div>
+    <div><img id="temple" class="temple_fade" style="width: 85px; ;" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/temple.png" alt=""></div>
+    <span id="temple_sign" style="color: white"></span>
+  </div>
+  <!--
+    <div><span style="color: gold; letter-spacing: 4px; font-size: 11px">premium features</span> </div>
+  <div><span style="color: gold; letter-spacing: 4px; font-size: 11px">Reveal a clue</span> </div>
+-->
+</div>
+
+
+</div>
+</div>
+<!--* End of left pan -->
+
+
+
+
+<!--* Center pan -->
+<h3 class="header" style="margin-top:50px;">I expected someone like you.
+ <br> <span style="color: grey; font-size: 60%; line-height: 19px !important"><br>Have you ever considered any real freedoms? Freedom from watching youtube... Even from checking social media for hours?</span>
+</h3>
+
+<h3 class="header2">The heart of Procrastination <br> <br> <span style="font-size: 12px !important; letter-spacing: 5px;">Corruptio optimi pessima.</span></h3>
+
+
+
+<p class="extensions"> <span style="line-height: 1.6; font-size: 135%; letter-spacing: 1px;">Colonel Kurtz's Website Blocker</span> <br>Made by <span style="font-weight: 900; color: lightgrey">Voj<span style="color:gold">Tech</span>
+  <p id="fb_testing">Share on Facebook</p>
+<!--
+<br>Author of:
+<br>
+<br>
+<a href="example.com">classified</a> <span style="color:gray !important">access denied 🔒</span><br>
+<a href="example.com">classified</a>         <span style="color:gray !important">access denied 🔒</span><br>
+<a href="example.com">classified</a>         <span style="color:gray !important">access denied 🔒</span><br>
+-->
+
+</p>
+
+
+<!--* Right panel -->
+
+<div class="folded_panel" id="folded_right_panel">⇐</div>
+<div class="right_panel_unfolded">
+  <div id="right_panel_close">x</div>
+  <div class="ts_eliot">
+    We are the hollow men  <br> We are the stuffed men  <br> Leaning together <br> Headpiece filled with straw. Alas! <br> Our dried voices, when  <br> We whisper together  <br> Are quiet and meaningless <br> As wind in dry grass  <br> Or rats’ feet over broken glass <br> In our dry cellar <br> <br> Shape without form, shade without colour.  <br> Paralysed force, gesture without motion; <br> <br> Those who have crossed <br> With direct eyes, to death’s other Kingdom <br> Remember us—if at all—not as lost  <br> Violent souls, but only  <br> As the hollow men  <br> <br> II <br> <br> Eyes I dare not meet in dreams  <br> In death’s dream kingdom  <br> These do not appear: <br> There, the eyes are  <br> Sunlight on a broken column  <br> There, is a tree swinging <br> And voices are  <br> In the wind’s singing  <br> More distant and more solemn  <br> Than a fading star. <br> <br> Let me be no nearer  <br> In death’s dream kingdom  <br> Let me also wear <br> Such deliberate disguises <br> Rat’s coat, crowskin, crossed staves <br> In a field <br> Behaving as the wind behaves  <br> No nearer— <br> <br> Not that final meeting  <br> In the twilight kingdom <br> <br> III <br> <br> This is the dead land <br> This is cactus land <br> Here the stone images <br> Are raised, here they receive <br> The supplication of a dead man’s hand <br> Under the twinkle of a fading star. <br> <br> Is it like this <br> In death’s other kingdom <br> Waking alone <br> At the hour when we are  <br> Trembling with tenderness  <br> Lips that would kiss <br> Form prayers to broken stone. <br> <br> IV <br> <br> The eyes are not here  <br> There are no eyes here  <br> In this valley of dying stars  <br> In this hollow valley <br> This broken jaw of our lost kingdoms <br> <br> In this last of meeting places  <br> We grope together  <br> And avoid speech <br> Gathered on this beach of the tumid river <br> <br> Sightless, unless  <br> The eyes reappear  <br> As the perpetual star <br> Multifoliate rose  <br> Of death’s twilight kingdom  <br> The hope only  <br> Of empty men. <br> <br> V <br> <br> Here we go round the prickly pear  <br> Prickly pear prickly pear  <br> Here we go round the prickly pear  <br> At five o’clock in the morning. <br> <br> Between the idea  <br> And the reality  <br> Between the motion  <br> And the act  <br> Falls the Shadow <br> <br> For Thine is the Kingdom <br> <br> Between the conception  <br> And the creation <br> Between the emotion  <br> And the response  <br> Falls the Shadow <br> <br> Life is very long <br> <br> Between the desire  <br> And the spasm  <br> Between the potency  <br> And the existence  <br> Between the essence  <br> And the descent  <br> Falls the Shadow <br> <br> For Thine is the Kingdom <br> <br> For Thine is  <br> Life is <br> For Thine is the <br> <br> This is the way the world ends  <br> This is the way the world ends  <br> This is the way the world ends  <br> Not with a bang but a <span id="trg_word">whimper</span>. <br>
+  </div>
+</div>
+
+
+
+</div><!--* End of main parent -->
+
+
+<div id="clue_box" style=" display: none; position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); width: 500px; background: black; height: auto; color: lightgrey; padding: 0px; box-shadow: 0 7px 6px -4px black;">
+
+  <div style="position: absolute; top: 0; left: 0; display: flex; color: grey;">
+    <!-- <div style="cursor: pointer; padding-right:15px;" id="previus_clue">< Previus </div> -->
+    <div style="cursor: pointer;" id="next_clue">Next ⇒ </div>
+  </div>
+  <div id="clue_box_close_btn" style="cursor: pointer; position: absolute; top: 0; right: 0; border-right: 1px solid white; border-top: 1px solid white; color: white; margin: 0px; height: 20px; width: 20px; line-height: 20px; text-align: center; padding: 2px; padding-top: 0px;">x</div>
+
+  <div class="1" id="clue_text" style="padding-top: 35px; padding-bottom: 15px;"> Charlie Don't Surf. <br>Nor does he patrol the river... </div>
+
+
+  <!-- <img src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/fb.png" style="height: 40px; background: white;" alt=""> -->
+
+</div>
+
+
+<img style="display:none" id="chef_head" src="https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/chefhead.png">
+
+
+<script src="vanila_js_no_chrome_elements.js"></script>
+</body>
+</html>
