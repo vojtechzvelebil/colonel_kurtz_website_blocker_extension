@@ -182,7 +182,7 @@ next_clue?.addEventListener("click", () => {
           This is the end of the river.<br>
           Contact Almighty for more clues:
           <br>
-          <div style="position:relative; padding:20px 30px;">
+          <div style="position:relative; padding:20px ;">
             <i style="color:grey;">
               Hello, Almighty. Almighty, this is PBR Street Gang.
               Coordinates: ${page}
@@ -425,29 +425,17 @@ if (mission_date_span) {
   mission_date_span.textContent = new Date();
 }
 
-// ============================================================
-// RESIZE EASTER EGG (Fixed)
-// ============================================================
 
-let devilTriggered = false;
+// ============================================================
+// RESIZE EASTER EGG
+// ============================================================
 
 window.addEventListener("resize", () => {
-  // Check if it hasn't been found yet, hasn't already triggered this session,
-  // and the width has dropped to or below 666px
-  if (!finds.devil && !devilTriggered && window.innerWidth <= 666) {
-    devilTriggered = true;
-
-    htmlAlert(
-      `<div class="alert_find_class" id="devil"> <br><br><br> The good does not always triumph. Sometimes the dark side overcomes what Lincoln called the better angels of our nature. Proceed. With extreme prejudice. </div>`,
-      "https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/devil_icon.png"
-    );
-  }
-
-  // Reset the trigger flag if they resize the window back up above 666px
-  if (window.innerWidth > 666) {
-    devilTriggered = false;
+  if (!finds.devil && window.innerWidth === 666) {
+    htmlAlert( `<div class="alert_find_class" id="devil"> <br><br><br> The good does not always triumph. Sometimes the dark side overcomes what Lincoln called the better angels of our nature. Proceed. With extreme prejudice. </div>`, "https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/devil_icon.png" );
   }
 });
+
 
 // ============================================================
 // TIME-BASED EASTER EGGS
