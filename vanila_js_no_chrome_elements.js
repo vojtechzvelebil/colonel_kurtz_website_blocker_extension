@@ -14,7 +14,7 @@ const browserStorage = {
       score: 0,
       finds: {
         malaria: null,
-        devil: null,
+        devil\: null,
         napalm: null,
         blue_bus: null,
         surf: null,
@@ -425,17 +425,29 @@ if (mission_date_span) {
   mission_date_span.textContent = new Date();
 }
 
+// ============================================================
+// RESIZE EASTER EGG (Fixed)
+// ============================================================
 
-// ============================================================
-// RESIZE EASTER EGG
-// ============================================================
+let devilTriggered = false;
 
 window.addEventListener("resize", () => {
-  if (!finds.devil && window.innerWidth === 666) {
-    htmlAlert( `<div class="alert_find_class" id="devil"> <br><br><br> The good does not always triumph. Sometimes the dark side overcomes what Lincoln called the better angels of our nature. Proceed. With extreme prejudice. </div>`, "https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/devil_icon.png" );
+  // Check if it hasn't been found yet, hasn't already triggered this session,
+  // and the width has dropped to or below 666px
+  if (!finds.devil && !devilTriggered && window.innerWidth <= 666) {
+    devilTriggered = true;
+
+    htmlAlert(
+      `<div class="alert_find_class" id="devil"> <br><br><br> The good does not always triumph. Sometimes the dark side overcomes what Lincoln called the better angels of our nature. Proceed. With extreme prejudice. </div>`,
+      "https://raw.githubusercontent.com/vojtechzvelebil/kurtz_imgs2/refs/heads/main/devil_icon.png"
+    );
+  }
+
+  // Reset the trigger flag if they resize the window back up above 666px
+  if (window.innerWidth > 666) {
+    devilTriggered = false;
   }
 });
-
 
 // ============================================================
 // TIME-BASED EASTER EGGS
