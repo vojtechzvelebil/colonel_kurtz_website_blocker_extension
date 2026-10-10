@@ -14,7 +14,7 @@ const browserStorage = {
       score: 0,
       finds: {
         malaria: null,
-        devil\: null,
+        devil: null,
         napalm: null,
         blue_bus: null,
         surf: null,
