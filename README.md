@@ -5,8 +5,8 @@ If you did, this extension might help you attain them. It lets you stay on websi
 The original scene that is embeded in the extension (the lighting and camera is just absolutely mesmerizing!): 
 https://www.youtube.com/watch?v=U72oCSSbYcM
 
-Chrome webstore: 
-
+Chrome webstore: <br>
+https://chromewebstore.google.com/detail/deemngaphalnilhllgpfdoenfchmkepc
 
 Peace, 
 Shalom, 
